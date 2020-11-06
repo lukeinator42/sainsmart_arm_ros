@@ -1,0 +1,196 @@
+<?xml version="1.0" ?>
+<robot name="sainsmart_arm_final" xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+<xacro:include filename="$(find sainsmart_arm_final_description)/urdf/materials.xacro" />
+<xacro:include filename="$(find sainsmart_arm_final_description)/urdf/sainsmart_arm_final.trans" />
+<xacro:include filename="$(find sainsmart_arm_final_description)/urdf/sainsmart_arm_final.gazebo" />
+<link name="base_link">
+  <inertial>
+    <origin rpy="0 0 0" xyz="1.7636188208444524e-13 -0.0014557356335939994 0.005087271427580622"/>
+    <mass value="0.621605611134476"/>
+    <inertia ixx="0.000585" ixy="0.0" ixz="0.0" iyy="0.000295" iyz="7e-06" izz="0.000862"/>
+  </inertial>
+  <visual>
+    <origin rpy="0 0 0" xyz="0 0 0"/>
+    <geometry>
+      <mesh filename="package://sainsmart_arm_final_description/meshes/base_link.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin rpy="0 0 0" xyz="0 0 0"/>
+    <geometry>
+      <mesh filename="package://sainsmart_arm_final_description/meshes/base_link.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="base_cylinder_1_1">
+  <inertial>
+    <origin rpy="0 0 0" xyz="1.1874813777669709e-17 -0.005046544847183422 0.03537439948822327"/>
+    <mass value="1.50308323620687"/>
+    <inertia ixx="0.001583" ixy="0.0" ixz="0.0" iyy="0.001506" iyz="0.00026" izz="0.001385"/>
+  </inertial>
+  <visual>
+    <origin rpy="0 0 0" xyz="-0.0 0.01205 -0.018"/>
+    <geometry>
+      <mesh filename="package://sainsmart_arm_final_description/meshes/base_cylinder_1_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin rpy="0 0 0" xyz="-0.0 0.01205 -0.018"/>
+    <geometry>
+      <mesh filename="package://sainsmart_arm_final_description/meshes/base_cylinder_1_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="arm_shaft_2_1">
+  <inertial>
+    <origin rpy="0 0 0" xyz="0.0098 -3.2127078775090467e-15 0.060470481453181166"/>
+    <mass value="0.2475707288367942"/>
+    <inertia ixx="0.000422" ixy="0.0" ixz="-0.0" iyy="0.000442" iyz="0.0" izz="4.9e-05"/>
+  </inertial>
+  <visual>
+    <origin rpy="0 0 0" xyz="0.01 0.035 -0.105"/>
+    <geometry>
+      <mesh filename="package://sainsmart_arm_final_description/meshes/arm_shaft_2_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin rpy="0 0 0" xyz="0.01 0.035 -0.105"/>
+    <geometry>
+      <mesh filename="package://sainsmart_arm_final_description/meshes/arm_shaft_2_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="cross_link_1">
+  <inertial>
+    <origin rpy="0 0 0" xyz="0.005 0.01861888301361921 0.014257377630451373"/>
+    <mass value="0.21614231595557873"/>
+    <inertia ixx="0.000111" ixy="0.0" ixz="0.0" iyy="3.3e-05" iyz="6e-06" izz="8.2e-05"/>
+  </inertial>
+  <visual>
+    <origin rpy="0 0 0" xyz="0.005 0.035 -0.223"/>
+    <geometry>
+      <mesh filename="package://sainsmart_arm_final_description/meshes/cross_link_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin rpy="0 0 0" xyz="0.005 0.035 -0.223"/>
+    <geometry>
+      <mesh filename="package://sainsmart_arm_final_description/meshes/cross_link_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="cross_shaft_1">
+  <inertial>
+    <origin rpy="0 0 0" xyz="-1.2907265144586312e-05 -0.051581655577793824 2.7755575615628914e-17"/>
+    <mass value="0.28363356011754126"/>
+    <inertia ixx="0.000259" ixy="-0.0" ixz="0.0" iyy="4.8e-05" iyz="-0.0" izz="0.000232"/>
+  </inertial>
+  <visual>
+    <origin rpy="0 0 0" xyz="-0.0 0.05375 -0.2463"/>
+    <geometry>
+      <mesh filename="package://sainsmart_arm_final_description/meshes/cross_shaft_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin rpy="0 0 0" xyz="-0.0 0.05375 -0.2463"/>
+    <geometry>
+      <mesh filename="package://sainsmart_arm_final_description/meshes/cross_shaft_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="wrist_link_1">
+  <inertial>
+    <origin rpy="0 0 0" xyz="-0.0001299460047543682 -0.0075755816891169 -0.011649999999999938"/>
+    <mass value="0.15171613937169018"/>
+    <inertia ixx="1.8e-05" ixy="0.0" ixz="-0.0" iyy="1.7e-05" iyz="-0.0" izz="2.2e-05"/>
+  </inertial>
+  <visual>
+    <origin rpy="0 0 0" xyz="-0.0 0.14675 -0.2563"/>
+    <geometry>
+      <mesh filename="package://sainsmart_arm_final_description/meshes/wrist_link_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin rpy="0 0 0" xyz="-0.0 0.14675 -0.2563"/>
+    <geometry>
+      <mesh filename="package://sainsmart_arm_final_description/meshes/wrist_link_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="interface_1">
+  <inertial>
+    <origin rpy="0 0 0" xyz="2.2701184654212516e-06 -0.0022971548063360214 5.551115123125783e-17"/>
+    <mass value="0.024434437632418163"/>
+    <inertia ixx="1e-06" ixy="0.0" ixz="0.0" iyy="3e-06" iyz="0.0" izz="2e-06"/>
+  </inertial>
+  <visual>
+    <origin rpy="0 0 0" xyz="-0.0 0.17585 -0.24465"/>
+    <geometry>
+      <mesh filename="package://sainsmart_arm_final_description/meshes/interface_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin rpy="0 0 0" xyz="-0.0 0.17585 -0.24465"/>
+    <geometry>
+      <mesh filename="package://sainsmart_arm_final_description/meshes/interface_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<joint name="rotate_base" type="continuous">
+  <origin rpy="0 0 0" xyz="0.0 -0.01205 0.018"/>
+  <parent link="base_link"/>
+  <child link="base_cylinder_1_1"/>
+  <axis xyz="0.0 0.0 1.0"/>
+</joint>
+
+<joint name="arm_shaft_joint_a" type="continuous">
+  <origin rpy="0 0 0" xyz="-0.01 -0.02295 0.087"/>
+  <parent link="base_cylinder_1_1"/>
+  <child link="arm_shaft_2_1"/>
+  <axis xyz="1.0 0.0 0.0"/>
+</joint>
+
+<joint name="arm_shaft_joint_b" type="continuous">
+  <origin rpy="0 0 0" xyz="0.005 0.0 0.118"/>
+  <parent link="arm_shaft_2_1"/>
+  <child link="cross_link_1"/>
+  <axis xyz="1.0 0.0 0.0"/>
+</joint>
+
+<joint name="cross_shaft_rotation" type="continuous">
+  <origin rpy="0 0 0" xyz="0.005 -0.01875 0.0233"/>
+  <parent link="cross_link_1"/>
+  <child link="cross_shaft_1"/>
+  <axis xyz="0.0 -1.0 0.0"/>
+</joint>
+
+<joint name="wrist_rotation" type="continuous">
+  <origin rpy="0 0 0" xyz="0.0 -0.093 0.01"/>
+  <parent link="cross_shaft_1"/>
+  <child link="wrist_link_1"/>
+  <axis xyz="0.0 0.0 -1.0"/>
+</joint>
+
+<joint name="interface_rotation" type="continuous">
+  <origin rpy="0 0 0" xyz="0.0 -0.0291 -0.01165"/>
+  <parent link="wrist_link_1"/>
+  <child link="interface_1"/>
+  <axis xyz="0.0 -1.0 0.0"/>
+</joint>
+
+</robot>

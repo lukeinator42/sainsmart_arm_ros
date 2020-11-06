@@ -1,0 +1,70 @@
+<?xml version="1.0" ?>
+<robot name="sainsmart_arm_final" xmlns:xacro="http://www.ros.org/wiki/xacro" >
+
+<transmission name="rotate_base_tran">
+  <type>transmission_interface/SimpleTransmission</type>
+  <joint name="rotate_base">
+    <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+  </joint>
+  <actuator name="rotate_base_actr">
+    <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    <mechanicalReduction>1</mechanicalReduction>
+  </actuator>
+</transmission>
+
+<transmission name="arm_shaft_joint_a_tran">
+  <type>transmission_interface/SimpleTransmission</type>
+  <joint name="arm_shaft_joint_a">
+    <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+  </joint>
+  <actuator name="arm_shaft_joint_a_actr">
+    <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    <mechanicalReduction>1</mechanicalReduction>
+  </actuator>
+</transmission>
+
+<transmission name="arm_shaft_joint_b_tran">
+  <type>transmission_interface/SimpleTransmission</type>
+  <joint name="arm_shaft_joint_b">
+    <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+  </joint>
+  <actuator name="arm_shaft_joint_b_actr">
+    <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    <mechanicalReduction>1</mechanicalReduction>
+  </actuator>
+</transmission>
+
+<transmission name="cross_shaft_rotation_tran">
+  <type>transmission_interface/SimpleTransmission</type>
+  <joint name="cross_shaft_rotation">
+    <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+  </joint>
+  <actuator name="cross_shaft_rotation_actr">
+    <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    <mechanicalReduction>1</mechanicalReduction>
+  </actuator>
+</transmission>
+
+<transmission name="wrist_rotation_tran">
+  <type>transmission_interface/SimpleTransmission</type>
+  <joint name="wrist_rotation">
+    <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+  </joint>
+  <actuator name="wrist_rotation_actr">
+    <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    <mechanicalReduction>1</mechanicalReduction>
+  </actuator>
+</transmission>
+
+<transmission name="interface_rotation_tran">
+  <type>transmission_interface/SimpleTransmission</type>
+  <joint name="interface_rotation">
+    <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+  </joint>
+  <actuator name="interface_rotation_actr">
+    <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    <mechanicalReduction>1</mechanicalReduction>
+  </actuator>
+</transmission>
+
+</robot>

@@ -1,0 +1,31 @@
+sainsmart_arm_final_controller:
+  # Publish all joint states -----------------------------------
+  joint_state_controller:
+    type: joint_state_controller/JointStateController
+    publish_rate: 50
+
+  # Position Controllers --------------------------------------
+  rotate_base_position_controller:
+    type: effort_controllers/JointPositionController
+    joint: rotate_base
+    pid: {p: 100.0, i: 0.01, d: 10.0}
+  arm_shaft_joint_a_position_controller:
+    type: effort_controllers/JointPositionController
+    joint: arm_shaft_joint_a
+    pid: {p: 100.0, i: 0.01, d: 10.0}
+  arm_shaft_joint_b_position_controller:
+    type: effort_controllers/JointPositionController
+    joint: arm_shaft_joint_b
+    pid: {p: 100.0, i: 0.01, d: 10.0}
+  cross_shaft_rotation_position_controller:
+    type: effort_controllers/JointPositionController
+    joint: cross_shaft_rotation
+    pid: {p: 100.0, i: 0.01, d: 10.0}
+  wrist_rotation_position_controller:
+    type: effort_controllers/JointPositionController
+    joint: wrist_rotation
+    pid: {p: 100.0, i: 0.01, d: 10.0}
+  interface_rotation_position_controller:
+    type: effort_controllers/JointPositionController
+    joint: interface_rotation
+    pid: {p: 100.0, i: 0.01, d: 10.0}
