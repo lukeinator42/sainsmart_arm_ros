@@ -19,11 +19,13 @@ Servo rotate_base;
 
 double rotate_base_angle=90;
 double arm_shaft_joint_a_angle=90;
-double arm_shaft_joint_b_angle=40;
-double cross_shaft_rotation_angle=130;
+double arm_shaft_joint_b_angle=90;
+double cross_shaft_rotation_angle=90;
 double wrist_rotation_angle=90;
 double interface_rotation_angle=90;
 
+double arm_shaft_joint_b_offset=-55;
+double cross_shaft_rotation_offset=40;
 
 //define max ranges
 double rotate_base_min=0;
@@ -32,7 +34,7 @@ double rotate_base_max=180;
 double arm_shaft_joint_a_min=45;
 double arm_shaft_joint_a_max=150;
 
-double arm_shaft_joint_b_min=45;
+double arm_shaft_joint_b_min=30;
 double arm_shaft_joint_b_max=160;
 
 double cross_shaft_rotation_min=0;
@@ -53,7 +55,7 @@ void servo_cb(const sensor_msgs::JointState& cmd_msg){
   if(rotate_base_angle > rotate_base_max)
     rotate_base_angle = rotate_base_max;
   
-  arm_shaft_joint_a_angle=radiansToDegrees(cmd_msg.position[1]);
+  arm_shaft_joint_a_angle=radiansToDegrees(-cmd_msg.position[1]);
 
   if(arm_shaft_joint_a_angle < arm_shaft_joint_a_min)
     arm_shaft_joint_a_angle = arm_shaft_joint_a_min;
@@ -61,7 +63,7 @@ void servo_cb(const sensor_msgs::JointState& cmd_msg){
   if(arm_shaft_joint_a_angle > arm_shaft_joint_a_max)
     arm_shaft_joint_a_angle = arm_shaft_joint_a_max;
   
-  arm_shaft_joint_b_angle=radiansToDegrees(cmd_msg.position[2]);
+  arm_shaft_joint_b_angle=radiansToDegrees(cmd_msg.position[2]+cmd_msg.position[1])+arm_shaft_joint_b_offset;
 
   if(arm_shaft_joint_b_angle < arm_shaft_joint_b_min)
     arm_shaft_joint_b_angle = arm_shaft_joint_b_min;
@@ -69,7 +71,7 @@ void servo_cb(const sensor_msgs::JointState& cmd_msg){
   if(arm_shaft_joint_b_angle > arm_shaft_joint_b_max)
     arm_shaft_joint_b_angle = arm_shaft_joint_b_max;
   
-  cross_shaft_rotation_angle=radiansToDegrees(cmd_msg.position[3]);
+  cross_shaft_rotation_angle=radiansToDegrees(cmd_msg.position[3])+cross_shaft_rotation_offset;
   
   if(cross_shaft_rotation_angle < cross_shaft_rotation_min)
     cross_shaft_rotation_angle = cross_shaft_rotation_min;
@@ -77,7 +79,7 @@ void servo_cb(const sensor_msgs::JointState& cmd_msg){
   if(cross_shaft_rotation_angle > cross_shaft_rotation_max)
     cross_shaft_rotation_angle = cross_shaft_rotation_max;
   
-  wrist_rotation_angle=radiansToDegrees(cmd_msg.position[4]);
+  wrist_rotation_angle=radiansToDegrees(-cmd_msg.position[4]);
 
   if(wrist_rotation_angle < wrist_rotation_min)
     wrist_rotation_angle = wrist_rotation_min;
@@ -118,12 +120,12 @@ void setup(){
   interface_rotation.attach(7); 
 
   delay(1);
-  rotate_base.write(90);
-  arm_shaft_joint_a.write(90);
-  arm_shaft_joint_b.write(40);
-  cross_shaft_rotation.write(130);
-  wrist_rotation.write(90);
-  interface_rotation.write(90);
+  rotate_base.write(rotate_base_angle);
+  arm_shaft_joint_a.write(arm_shaft_joint_a_angle);
+  arm_shaft_joint_b.write(arm_shaft_joint_b_angle+arm_shaft_joint_b_offset);
+  cross_shaft_rotation.write(cross_shaft_rotation_angle+cross_shaft_rotation_offset);
+  wrist_rotation.write(wrist_rotation_angle);
+  interface_rotation.write(interface_rotation_angle);
 }
 
 void loop(){
