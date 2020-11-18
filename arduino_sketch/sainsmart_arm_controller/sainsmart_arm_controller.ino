@@ -31,7 +31,7 @@ double cross_shaft_rotation_offset=40;
 double rotate_base_min=0;
 double rotate_base_max=180;
 
-double arm_shaft_joint_a_min=45;
+double arm_shaft_joint_a_min=0;
 double arm_shaft_joint_a_max=150;
 
 double arm_shaft_joint_b_min=30;
