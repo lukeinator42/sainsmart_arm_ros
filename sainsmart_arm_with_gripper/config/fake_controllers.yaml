@@ -1,0 +1,15 @@
+controller_list:
+  - name: fake_sainsmart_arm_controller
+    joints:
+      - rotate_base
+      - arm_shaft_joint_a
+      - arm_shaft_joint_b
+      - cross_shaft_rotation
+      - wrist_rotation
+      - interface_rotation
+  - name: fake_gripper_controller
+    joints:
+      - gripper_slider
+initial:  # Define initial robot poses.
+  - group: sainsmart_arm
+    pose: home

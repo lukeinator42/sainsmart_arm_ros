@@ -1,0 +1,11 @@
+moveit_setup_assistant_config:
+  URDF:
+    package: sainsmart_arm_with_gripper_description
+    relative_path: urdf/sainsmart_arm_with_gripper.xacro
+    xacro_args: ""
+  SRDF:
+    relative_path: config/sainsmart_arm_with_gripper.srdf
+  CONFIG:
+    author_name: Lukas Grasse
+    author_email: lukas@reverbrobotics.ca
+    generated_timestamp: 1605658962
